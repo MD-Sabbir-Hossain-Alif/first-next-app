@@ -1,7 +1,12 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 const DashboardLayout = ({ children }) => {
+    const pathName = usePathname();
+    // console.log("path name from dashboard",pathName)
     return (
         <div>
             <div className="drawer lg:drawer-open">
@@ -29,16 +34,41 @@ const DashboardLayout = ({ children }) => {
                     <ul className="menu bg-base-200 min-h-full w-80 p-4">
                         {/* Sidebar content here */}
                         <li>
-                            <Link href="/dashboard">
+                            <Link
+                                className={
+                                    pathName === "/dashboard"
+                                        ? "text-blue-600 font-black"
+                                        : ""
+                                }
+                                href="/dashboard"
+                            >
                                 {/* This is common (i mean its from layout) */}
                                 Dashboard
                             </Link>
                         </li>
                         <li>
-                            <Link href="/dashboard/profile">Profile</Link>
+                            <Link
+                                className={
+                                    pathName === "/dashboard/profile"
+                                        ? "text-blue-600 font-black"
+                                        : ""
+                                }
+                                href="/dashboard/profile"
+                            >
+                                Profile
+                            </Link>
                         </li>
                         <li>
-                            <Link href="/dashboard/revenue">Revenue</Link>
+                            <Link
+                                className={
+                                    pathName === "/dashboard/revenue"
+                                        ? "text-blue-600 font-black"
+                                        : ""
+                                }
+                                href="/dashboard/revenue"
+                            >
+                                Revenue
+                            </Link>
                         </li>
                     </ul>
                 </div>

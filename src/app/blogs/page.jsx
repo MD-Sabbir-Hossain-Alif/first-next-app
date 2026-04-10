@@ -1,4 +1,10 @@
 import Link from "next/link";
+import { Roboto } from "next/font/google";
+
+const roboto = Roboto({
+    weight: "400",
+    subsets: ["latin"],
+});
 
 export const metadata = {
     title: "Blogs",
@@ -54,7 +60,7 @@ const blogs = [
 const BlogsPage = () => {
     // console.log(blogs);
     return (
-        <div>
+        <div className={roboto.className}>
             <h1 className="text-5xl font-bole mt-4 text-center">Blogs</h1>
             {blogs.map((blog) => (
                 <div

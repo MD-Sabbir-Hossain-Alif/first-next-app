@@ -1,4 +1,14 @@
 import Link from "next/link";
+import { Roboto, Poppins } from "next/font/google";
+
+const roboto = Roboto({
+    weight: "400",
+    subsets: ["latin"],
+});
+const poppins = Poppins({
+    weight: "400",
+    subsets: ["latin"],
+});
 
 const blogs = [
     {
@@ -61,11 +71,11 @@ const BlogDetailsPage = async ({ params }) => {
     }
     const { title, content, author } = blog;
     return (
-        <div>
+        <div className={poppins.className}>
             {blog && (
                 <div className="space-y-2 mt-10 border border-gray-100 rounded-2xl p-4 max-w-md mx-auto">
                     <h4 className="text-2xl">{title}</h4>
-                    <p>{content}</p>
+                    <p className={roboto.className}>{content}</p>
                     <p className="text-gray-400">{author}</p>
                     <Link href="/blogs" className="btn btn-info btn-outline">
                         Blogs
